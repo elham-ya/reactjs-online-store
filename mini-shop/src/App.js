@@ -1,15 +1,22 @@
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Header from './Components/Layout/Header';
 import Footer from './Components/Layout/Footer';
+import CategoryScreen from './Components/Screens/CategoryScreen';
+import ProductScreen from './Components/Screens/ProductScreen'
 
-function App() {
+const App = () => {
   return (
-    <div>
+    <Router>
       <Header />
       <main>
-        <h1>helllo</h1>
+        <Routes>
+          <Route path="/" element={<CategoryScreen />} exact />
+          <Route path="/get_product" element={<ProductScreen />} />
+        </Routes>
       </main>
       <Footer />
-    </div>
+    </Router>
   );
 }
 

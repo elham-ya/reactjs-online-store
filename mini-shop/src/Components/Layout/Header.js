@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import { Link } from 'react-router-dom';
 import IconImage from '../../assets/logo.png';
 import Avatar from '../../assets/Avatar.png';
 
@@ -9,13 +10,13 @@ const Header = () => {
             <div className='header'>
                 <header>
                     <div className="right-header">
-                        <img src={IconImage} alt="logo" />
+                        <Link to="/"><img src={IconImage} alt="logo" /></Link>
                         <ul>
-                            <li><a href="#">خانه</a></li>
-                            <li><a href="#">فروشگاه</a></li>
-                            <li><a href="#">وبلاگ</a></li>
-                            <li><a href="#">درباره ما</a></li>
-                            <li><a href="#">تماس با ما</a></li>
+                            <li><Link to="/">خانه</Link></li>
+                            <li><Link to="/store">فروشگاه</Link></li>
+                            <li><Link to="/blog">وبلاگ</Link></li>
+                            <li><Link to="/aboutus">درباره ما</Link></li>
+                            <li><Link to="contactus">تماس با ما</Link></li>
                         </ul>
                     </div>
                     <div className="left-header">
@@ -25,12 +26,12 @@ const Header = () => {
                 </header>
                 <div className="menu">
                     <ul>
-                        <li><a href="#">مراقبت پوست</a></li>
-                        <li><a href="#">مراقبت مو</a></li>
-                        <li><a href="#">مراقبت بدن</a></li>
-                        <li><a href="#">آرایشی</a></li>
-                        <li><a href="#">پرفروش ترین</a></li>
-                        <li><a href="#">جدیدترین</a></li>
+                        <li><Link to="/skincare">مراقبت پوست</Link></li>
+                        <li><Link to="haircare">مراقبت مو</Link></li>
+                        <li><Link to="bodycare">مراقبت بدن</Link></li>
+                        <li><Link to="makeup">آرایشی</Link></li>
+                        <li><Link to="bestseller">پرفروش ترین</Link></li>
+                        <li><Link to="newproducts">جدیدترین</Link></li>
                     </ul>
                 </div>
             </div>
