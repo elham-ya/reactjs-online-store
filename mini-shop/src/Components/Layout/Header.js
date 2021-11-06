@@ -1,10 +1,10 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 import { Link } from 'react-router-dom';
 import IconImage from '../../assets/logo.png';
 import Avatar from '../../assets/Avatar.png';
+import HeaderCartButton from './HeaderCartButton';
 
-
-const Header = () => {
+const Header = (props) => {
     return (
         <Fragment>
             <div className='header'>
@@ -33,6 +33,7 @@ const Header = () => {
                         <li><Link to="bestseller">پرفروش ترین</Link></li>
                         <li><Link to="newproducts">جدیدترین</Link></li>
                     </ul>
+                    <HeaderCartButton onShowCart={props.onClickShowCart} />
                 </div>
             </div>
         </Fragment>

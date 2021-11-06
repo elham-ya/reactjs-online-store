@@ -12,11 +12,10 @@ export const listProducts = (id) => async (dispatch) => {
         dispatch({ type: PRODUCT_LIST_REQUEST })
 
         const { data } = await axios.get(`/get_product?categories=${id}`);
-        console.log('data from product: ', data.list)
 
         dispatch({
             type: PRODUCT_LIST_SUCCESS,
-            payload: data.list
+            payload: data
         })
 
     } catch (error) {

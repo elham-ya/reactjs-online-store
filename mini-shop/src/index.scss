@@ -12,6 +12,12 @@ main {
     background-color: #fafafa;
 }
 
+.loading {
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+}
+
 .err-message {
     text-align: center;
     border: 1px solid #e86767;
@@ -21,6 +27,36 @@ main {
     padding: 25px;
     font-weight: lighter;
     font-size: 1.2rem;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    margin: 5px auto;
+    li {
+        width: 30px;
+        height: 30px;
+        margin: 10px;
+        text-align: center;
+        line-height: 30px;
+        border-radius: 50%;
+        &:hover {
+            background-color: #EC407A;
+            a {
+                color: #fff;
+            }
+        }
+        a {
+            display: block;
+            color: #333;
+        }
+    }
+    li.active a {
+        background-color: #EC407A;
+        color: #fff;
+    }
 }
 
 .header {
@@ -56,6 +92,31 @@ main {
     .menu {
         width: 90%;
         margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .button {
+        border: none;
+        padding: 0.5rem 0;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        background-color: transparent;
+        cursor: pointer;
+    }
+    .cart-icon {
+        width: 1.35rem;
+        height: 1.35rem;
+        margin-right: 0.5rem;
+    }
+    .badge {
+        background-color: #EC407A;
+        padding: 0.25rem;
+        border-radius: 25px;
+        margin-left: 1rem;
+        color: #fff;
+        font-weight: bold;
     }
 }
 
@@ -143,7 +204,10 @@ footer {
 }
 
 .category-page {
+    margin: 0;
+    padding: 50px 0;
     h1 {
+        margin-top: 0px;
         text-align: center;
     }
     .category-grid {
@@ -151,6 +215,7 @@ footer {
         justify-content: center;
         align-items: flex-start;
         flex-wrap: wrap;
+        margin: 50px auto;
         .category-item {
             position: relative;
             margin-bottom: 2rem;
