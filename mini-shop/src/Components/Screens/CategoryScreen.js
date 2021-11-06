@@ -1,34 +1,37 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux'
+import { listCategories } from '../../Actions/categoryAction';
 import CategoryItem from '../UI/CategoryItem';
-import axios from "axios";
 
 const CategoryScreen = () => {
-    const [category, setCategory] = useState([]);
+
+    const dispatch = useDispatch();
+    const categoryList = useSelector(state => state.categoryList)
+    const { error, loading, categories } = categoryList
 
     useEffect(() => {
-
-        async function fetchCategories() {
-            const { data } = await axios.get('/get_categories');
-            setCategory(data);
-        }
-        fetchCategories();
-    }, []);
+        dispatch(listCategories())
+    }, [dispatch]);
 
     return (
         <div className="category-page">
             <h1>دسته بندی</h1>
-            <div className="category-grid">
-                {
-                    category.map((item) => (
-                        <CategoryItem
-                            key={item.id}
-                            id={item.id}
-                            name={item.name}
-                            image={item.image}
-                        />
-                    ))
-                }
-            </div>
+            {loading ? <h2>Loading...</h2>
+                : error ? <h3 className="err-message">{error}</h3>
+                    :
+                    <div className="category-grid">
+                        {
+                            categories.map((item) => (
+                                <CategoryItem
+                                    key={item.id}
+                                    id={item.id}
+                                    name={item.name}
+                                    image={item.image}
+                                />
+                            ))
+                        }
+                    </div>
+            }
         </div>
     )
 };

@@ -1,29 +1,38 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useLocation } from "react-router-dom";
-import axios from "axios";
+// import axios from "axios";
+import { useDispatch, useSelector } from 'react-redux';
+import { listProducts } from '../../Actions/productAction'
+import ProductItem from '../UI/ProductItem'
 
 const ProductScreen = () => {
-    const [products, setProducts] = useState({});
+    const dispatch = useDispatch();
+    const productList = useSelector(state => state.productList);
+    const { error, loading, products } = productList
     const query = new URLSearchParams(useLocation().search);
     const categoryId = query.get("categories");
 
     useEffect(() => {
-
-        async function fetchProducts() {
-
-            const { data } = await axios.get(`/get_product?categories=${categoryId}`);
-            setProducts(data);
-
-        };
-        fetchProducts();
-
-        console.log('products', products);
-        console.log('categoryId', categoryId);
-    }, [categoryId, products]);
+        dispatch(listProducts(categoryId))
+    }, [dispatch]);
 
     return (
-        <div className="product-grid">
+        <div className="products-page">
+            <h1>محصولات</h1>
+            <div className="product-grid">
+                {
+                    products.map((item) => (
+                        <ProductItem
+                            key={item.id}
+                            source={`https://shopapi.rc.liadev.ir${item.small_pic}`}
+                            alt={item.title}
+                            title={item.title}
+                            price={item.price.price}
+                        />
+                    ))
+                }
 
+            </div>
         </div>
     )
 }
