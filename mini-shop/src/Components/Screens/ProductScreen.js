@@ -8,17 +8,17 @@ const ProductScreen = () => {
     const categoryId = query.get("categories");
 
     useEffect(() => {
-        const fetchProducts = async () => {
-            try {
-                const { data } = await axios.get(`/get_product?categories=${categoryId}`);
-                setProducts(data);
-            } catch (err) {
-                console.error(err);
-            }
+
+        async function fetchProducts() {
+
+            const { data } = await axios.get(`/get_product?categories=${categoryId}`);
+            setProducts(data);
+
         };
         fetchProducts();
-        console.log('products', products)
-        console.log('categoryId', categoryId)
+
+        console.log('products', products);
+        console.log('categoryId', categoryId);
     }, [categoryId, products]);
 
     return (

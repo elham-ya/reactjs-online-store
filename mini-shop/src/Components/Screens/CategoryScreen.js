@@ -6,7 +6,8 @@ const CategoryScreen = () => {
     const [category, setCategory] = useState([]);
 
     useEffect(() => {
-        const fetchCategories = async () => {
+
+        async function fetchCategories() {
             const { data } = await axios.get('/get_categories');
             setCategory(data);
         }
