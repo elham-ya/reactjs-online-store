@@ -30,10 +30,13 @@ const ProductScreen = () => {
                             products.map((item) => (
                                 <ProductItem
                                     key={item.id}
+                                    id={item.id}
                                     source={`https://shopapi.rc.liadev.ir${item.small_pic}`}
                                     alt={item.title}
                                     title={item.title}
                                     price={item.price.price}
+                                    volume={item.volume}
+                                    categoryId={categoryId}
                                 />
                             ))
                         }

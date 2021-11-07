@@ -118,6 +118,44 @@ main {
         color: #fff;
         font-weight: bold;
     }
+    .shop-cart-wrapper {
+        position: relative;
+        overflow: visible;
+    }
+    .shopping-cart {
+        width: 300px;
+        background-color: #202124;
+        color: #fff;
+        .product-count {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+        }
+    }
+    .shop-cart-wrapper ul.shopping-cart {
+        position: absolute;
+        right: auto;
+        bottom: 0;
+        left: 00px;
+        top: 35px;
+        overflow: visible;
+        height: 12rem;
+        z-index: 2;
+        border-radius: 3px;
+    }
+    ul li.cart-item {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .cart-image {
+            width: 35%;
+        }
+        .cart-info {
+            width: 65%;
+        }
+    }
 }
 
 footer {

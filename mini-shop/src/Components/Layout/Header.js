@@ -33,7 +33,7 @@ const Header = (props) => {
                         <li><Link to="bestseller">پرفروش ترین</Link></li>
                         <li><Link to="newproducts">جدیدترین</Link></li>
                     </ul>
-                    <HeaderCartButton onShowCart={props.onClickShowCart} />
+                    <HeaderCartButton />
                 </div>
             </div>
         </Fragment>
