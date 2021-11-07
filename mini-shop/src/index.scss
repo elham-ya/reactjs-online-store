@@ -121,6 +121,18 @@ main {
     .shop-cart-wrapper {
         position: relative;
         overflow: visible;
+        button.close-cart {
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            color: red;
+            background-color: transparent;
+            border: none;
+            font-weight: bold;
+            padding: 14px;
+            font-size: 16px;
+            cursor: pointer;
+        }
     }
     .shopping-cart {
         width: 300px;
@@ -131,29 +143,74 @@ main {
             justify-content: center;
             align-items: center;
             color: #fff;
+            border: 1px solid #555;
+            border-radius: 8px;
+            width: 115px;
+            padding: 5px 0;
+            button {
+                border: none;
+                background-color: transparent;
+                color: #fff;
+            }
+        }
+        .input input {
+            background-color: transparent;
+            border: none;
+            text-align: center;
+            color: #fff;
         }
     }
-    .shop-cart-wrapper ul.shopping-cart {
+    .shop-cart-wrapper .shopping-cart {
         position: absolute;
         right: auto;
         bottom: 0;
-        left: 00px;
-        top: 35px;
+        left: 0px;
+        top: 55px;
         overflow: visible;
-        height: 12rem;
-        z-index: 2;
+        height: 20rem;
         border-radius: 3px;
-    }
-    ul li.cart-item {
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        .cart-image {
-            width: 35%;
+        padding: 10px;
+        overflow-y: scroll;
+        z-index: 2;
+        ul {
+            position: relative;
+            &::before {
+                content: '';
+                position: absolute;
+                left: 10px;
+                top: -30px;
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-width: 0 10px 15px 10px;
+                border-color: transparent transparent #202124 transparent;
+                z-index: 5;
+            }
         }
-        .cart-info {
-            width: 65%;
+    }
+    ul {
+        padding: 0;
+        margin: 5px 0;
+        li.cart-item {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 5px auto;
+            padding: 10px 5px;
+            .cart-image {
+                width: 35%;
+                img {
+                    max-width: 100%;
+                }
+            }
+            .cart-info {
+                width: 65%;
+                margin-right: 15px;
+            }
+        }
+        .cart-item:nth-child(2n) {
+            background-color: #3D3D3F;
         }
     }
 }

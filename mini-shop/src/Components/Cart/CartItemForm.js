@@ -1,12 +1,18 @@
 import { useRef, useState } from 'react'
-import Input from "../Components/UI/Input";
+import { useDispatch } from 'react-redux';
+import Input from "../UI/Input";
+import { addToCart } from '../../Actions/cartAction'
 
 const CartItemForm = (props) => {
-
     const [amountIsValid, setAmountIsValid] = useState(true);
+    const dispatch = useDispatch();
     const amountInputRef = useRef();
 
-    const submitHandler = event => {
+    const addToCartHandler = () => {
+
+    }
+
+    const submitHandler = (event) => {
         event.preventDefault();
 
         const enteredAmount = amountInputRef.current.value;
@@ -21,12 +27,11 @@ const CartItemForm = (props) => {
             return;
         }
 
-        props.onAddToCart(enteredAmountNumber);
-    }
-
+        dispatch(addToCart(props.id, enteredAmountNumber))
+    };
 
     return (
-        <form onSubmit={submitHandler} className="product-count">
+        <form className="product-count" onSubmit={submitHandler}>
             <button className="decrease">-</button>
             <Input
                 ref={amountInputRef}
